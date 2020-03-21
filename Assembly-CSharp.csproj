@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\PaddleController.cs" />
+     <Compile Include="Assets\Scripts\VirusController.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/Unity/projects/DDoS Pong/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
