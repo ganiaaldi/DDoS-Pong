@@ -13,6 +13,9 @@ public class VirusController : MonoBehaviour
     Text scoreUIP2;
     GameObject panelFinish;
     Text txWinner;
+    AudioSource audio;
+    public AudioClip hitSound;
+    public AudioClip enterSound;
  
     // Use this for initialization    
     void Start () {
@@ -25,6 +28,7 @@ public class VirusController : MonoBehaviour
         scoreUIP2 = GameObject.Find ("Score2").GetComponent<Text> ();
          panelFinish = GameObject.Find("Finish");
         panelFinish.SetActive(false);
+        audio = GetComponent<AudioSource>();
     }
   
     // Update is called once per frame
@@ -33,8 +37,10 @@ public class VirusController : MonoBehaviour
     }
  
     private void OnCollisionEnter2D(Collision2D coll) {
+        audio.PlayOneShot(hitSound);
         if (coll.gameObject.name == "Rightside") {
             scoreP1 += 1;
+            audio.PlayOneShot(enterSound);
             TampilkanScore ();
             if (scoreP1 == 5) {
                 panelFinish.SetActive(true);
@@ -49,6 +55,7 @@ public class VirusController : MonoBehaviour
         }
         if (coll.gameObject.name == "Leftside") {
              scoreP2 += 1;
+             audio.PlayOneShot(enterSound);
              TampilkanScore ();
              if (scoreP2 == 5) {
                 panelFinish.SetActive(true);
